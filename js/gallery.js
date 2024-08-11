@@ -80,8 +80,9 @@ gallery.insertAdjacentHTML('afterbegin', galleryMarkup);
 
 function imageClick(event) {
   event.preventDefault();
-  const galleryImage = event.target.classList.contains('gallery-image');
-  if (!galleryImage) return;
+  if (event.target.nodeName !== "img") {
+    return;
+  }
   const instance = basicLightbox.create(`
     <img src='${event.target.dataset.source}'>
   `)
