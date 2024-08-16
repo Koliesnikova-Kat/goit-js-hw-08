@@ -80,7 +80,7 @@ gallery.insertAdjacentHTML('afterbegin', galleryMarkup);
 
 function imageClick(event) {
   event.preventDefault();
-  if (event.target.nodeName !== "img") {
+  if (event.target === event.currentTarget) {
     return;
   }
   const instance = basicLightbox.create(`
